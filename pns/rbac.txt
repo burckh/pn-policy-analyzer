@@ -1,0 +1,91 @@
+[PLACES]
+s1_is_adm: 1
+s2_is_adm: 1
+s3_is_adm: 0
+
+s1_can_r_o1: 1
+s1_can_w_o1: 1
+s1_can_r_o2: 1
+s1_can_w_o2: 0
+s2_can_r_o1: 1
+s2_can_w_o1: 0
+s2_can_r_o2: 0
+s2_can_w_o2: 1
+s3_can_r_o1: 0
+s3_can_w_o1: 1
+s3_can_r_o2: 0
+s3_can_w_o2: 0
+
+safe_s1_r_o1: 0
+safe_s1_w_o1: 0
+safe_s1_r_o2: 0
+safe_s1_w_o2: 1
+safe_s2_r_o1: 0
+safe_s2_w_o1: 1
+safe_s2_r_o2: 1
+safe_s2_w_o2: 0
+safe_s3_r_o1: 1
+safe_s3_w_o1: 0
+safe_s3_r_o2: 1 
+safe_s3_w_o2: 1
+
+[TRANSITIONS]
+s1_rvk_s2_r_o1 : s1_is_adm:1, s2_can_r_o1:1 -> s1_is_adm:1, safe_s2_r_o1:1
+s1_rvk_s2_w_o1 : s1_is_adm:1, s2_can_w_o1:1 -> s1_is_adm:1, safe_s2_w_o1:1
+s1_grt_s2_r_o1 : s1_is_adm:1, safe_s2_r_o1:1 -> s1_is_adm:1, s2_can_r_o1:1
+s1_grt_s2_w_o1 : s1_is_adm:1, safe_s2_w_o1:1 -> s1_is_adm:1, s2_can_w_o1:1
+
+s1_rvk_s2_r_o2 : s1_is_adm:1, s2_can_r_o2:1 -> s1_is_adm:1, safe_s2_r_o2:1
+s1_rvk_s2_w_o2 : s1_is_adm:1, s2_can_w_o2:1 -> s1_is_adm:1, safe_s2_w_o2:1
+s1_grt_s2_r_o2 : s1_is_adm:1, safe_s2_r_o2:1 -> s1_is_adm:1, s2_can_r_o2:1
+s1_grt_s2_w_o2 : s1_is_adm:1, safe_s2_w_o2:1 -> s1_is_adm:1, s2_can_w_o2:1
+
+s1_rvk_s3_r_o1 : s1_is_adm:1, s3_can_r_o1:1 -> s1_is_adm:1, safe_s3_r_o1:1
+s1_rvk_s3_w_o1 : s1_is_adm:1, s3_can_w_o1:1 -> s1_is_adm:1, safe_s3_w_o1:1
+s1_grt_s3_r_o1 : s1_is_adm:1, safe_s3_r_o1:1 -> s1_is_adm:1, s3_can_r_o1:1
+s1_grt_s3_w_o1 : s1_is_adm:1, safe_s3_w_o1:1 -> s1_is_adm:1, s3_can_w_o1:1
+
+s1_rvk_s3_r_o2 : s1_is_adm:1, s3_can_r_o2:1 -> s1_is_adm:1, safe_s3_r_o2:1
+s1_rvk_s3_w_o2 : s1_is_adm:1, s3_can_w_o2:1 -> s1_is_adm:1, safe_s3_w_o2:1
+s1_grt_s3_r_o2 : s1_is_adm:1, safe_s3_r_o2:1 -> s1_is_adm:1, s3_can_r_o2:1
+s1_grt_s3_w_o2 : s1_is_adm:1, safe_s3_w_o2:1 -> s1_is_adm:1, s3_can_w_o2:1
+
+s2_rvk_s1_r_o1 : s2_is_adm:1, s1_can_r_o1:1 -> s2_is_adm:1, safe_s1_r_o1:1
+s2_rvk_s1_w_o1 : s2_is_adm:1, s1_can_w_o1:1 -> s2_is_adm:1, safe_s1_w_o1:1
+s2_grt_s1_r_o1 : s2_is_adm:1, safe_s1_r_o1:1 -> s2_is_adm:1, s1_can_r_o1:1
+s2_grt_s1_w_o1 : s2_is_adm:1, safe_s1_w_o1:1 -> s2_is_adm:1, s1_can_w_o1:1
+
+s2_rvk_s1_r_o2 : s2_is_adm:1, s1_can_r_o2:1 -> s2_is_adm:1, safe_s1_r_o2:1
+s2_rvk_s1_w_o2 : s2_is_adm:1, s1_can_w_o2:1 -> s2_is_adm:1, safe_s1_w_o2:1
+s2_grt_s1_r_o2 : s2_is_adm:1, safe_s1_r_o2:1 -> s2_is_adm:1, s1_can_r_o2:1
+s2_grt_s1_w_o2 : s2_is_adm:1, safe_s1_w_o2:1 -> s2_is_adm:1, s1_can_w_o2:1
+
+s2_rvk_s3_r_o1 : s2_is_adm:1, s3_can_r_o1:1 -> s2_is_adm:1, safe_s3_r_o1:1
+s2_rvk_s3_w_o1 : s2_is_adm:1, s3_can_w_o1:1 -> s2_is_adm:1, safe_s3_w_o1:1
+s2_grt_s3_r_o1 : s2_is_adm:1, safe_s3_r_o1:1 -> s2_is_adm:1, s3_can_r_o1:1
+s2_grt_s3_w_o1 : s2_is_adm:1, safe_s3_w_o1:1 -> s2_is_adm:1, s3_can_w_o1:1
+
+s2_rvk_s3_r_o2 : s2_is_adm:1, s3_can_r_o2:1 -> s2_is_adm:1, safe_s3_r_o2:1
+s2_rvk_s3_w_o2 : s2_is_adm:1, s3_can_w_o2:1 -> s2_is_adm:1, safe_s3_w_o2:1
+s2_grt_s3_r_o2 : s2_is_adm:1, safe_s3_r_o2:1 -> s2_is_adm:1, s3_can_r_o2:1
+s2_grt_s3_w_o2 : s2_is_adm:1, safe_s3_w_o2:1 -> s2_is_adm:1, s3_can_w_o2:1
+
+s3_rvk_s1_r_o1 : s3_is_adm:1, s1_can_r_o1:1 -> s3_is_adm:1, safe_s1_r_o1:1
+s3_rvk_s1_w_o1 : s3_is_adm:1, s1_can_w_o1:1 -> s3_is_adm:1, safe_s1_w_o1:1
+s3_grt_s1_r_o1 : s3_is_adm:1, safe_s1_r_o1:1 -> s3_is_adm:1, s1_can_r_o1:1
+s3_grt_s1_w_o1 : s3_is_adm:1, safe_s1_w_o1:1 -> s3_is_adm:1, s1_can_w_o1:1
+
+s3_rvk_s1_r_o2 : s3_is_adm:1, s1_can_r_o2:1 -> s3_is_adm:1, safe_s1_r_o2:1
+s3_rvk_s1_w_o2 : s3_is_adm:1, s1_can_w_o2:1 -> s3_is_adm:1, safe_s1_w_o2:1
+s3_grt_s1_r_o2 : s3_is_adm:1, safe_s1_r_o2:1 -> s3_is_adm:1, s1_can_r_o2:1
+s3_grt_s1_w_o2 : s3_is_adm:1, safe_s1_w_o2:1 -> s3_is_adm:1, s1_can_w_o2:1
+
+s3_rvk_s2_r_o1 : s3_is_adm:1, s2_can_r_o1:1 -> s3_is_adm:1, safe_s2_r_o1:1
+s3_rvk_s2_w_o1 : s3_is_adm:1, s2_can_w_o1:1 -> s3_is_adm:1, safe_s2_w_o1:1
+s3_grt_s2_r_o1 : s3_is_adm:1, safe_s2_r_o1:1 -> s3_is_adm:1, s2_can_r_o1:1
+s3_grt_s2_w_o1 : s3_is_adm:1, safe_s2_w_o1:1 -> s3_is_adm:1, s2_can_w_o1:1
+
+s3_rvk_s2_r_o2 : s3_is_adm:1, s2_can_r_o2:1 -> s3_is_adm:1, safe_s2_r_o2:1
+s3_rvk_s2_w_o2 : s3_is_adm:1, s2_can_w_o2:1 -> s3_is_adm:1, safe_s2_w_o2:1
+s3_grt_s2_r_o2 : s3_is_adm:1, safe_s2_r_o2:1 -> s3_is_adm:1, s2_can_r_o2:1
+s3_grt_s2_w_o2 : s3_is_adm:1, safe_s2_w_o2:1 -> s3_is_adm:1, s2_can_w_o2:1

@@ -1,0 +1,70 @@
+[PLACES]
+s1_can_r_o1: 1
+s1_can_w_o1: 1
+s2_can_r_o1: 1
+s2_can_w_o1: 0
+s3_can_r_o1: 0
+s3_can_w_o1: 1
+
+s1_can_r_o2: 1
+s1_can_w_o2: 0
+s2_can_r_o2: 0
+s2_can_w_o2: 1
+s3_can_r_o2: 0
+s3_can_w_o2: 0
+
+s1_r_o1: 0
+s1_w_o1: 0
+s2_r_o1: 0
+s2_w_o1: 0
+s3_r_o1: 0
+s3_w_o1: 0
+
+s1_r_o2: 0
+s1_w_o2: 0
+s2_r_o2: 0
+s2_w_o2: 0
+s3_r_o2: 0
+s3_w_o2: 0
+
+o1: 1
+o2: 1
+
+max_conc_all: 2
+max_conc_s1_o1: 1
+max_conc_s2_o1: 1
+max_conc_s3_o1: 1
+max_conc_s1_o2: 1
+max_conc_s2_o2: 1
+max_conc_s3_o2: 1
+
+[TRANSITIONS]
+s1_strt_r_o1 : max_conc_all:1, max_conc_s1_o1:1, s1_can_r_o1:1, o1:1 -> o1:1, s1_r_o1:1
+s1_stop_r_o1 : s1_r_o1:1 -> s1_can_r_o1:1, max_conc_all:1, max_conc_s1_o1:1
+s1_strt_w_o1 : max_conc_all:1, max_conc_s1_o1:1, s1_can_w_o1:1, o1:1 -> s1_w_o1:1
+s1_stop_w_o1 : s1_w_o1:1 -> s1_can_w_o1:1, o1:1, max_conc_all:1, max_conc_s1_o1:1
+
+s2_strt_r_o1 : max_conc_all:1, max_conc_s2_o1:1, s2_can_r_o1:1, o1:1 -> o1:1, s2_r_o1:1
+s2_stop_r_o1 : s2_r_o1:1 -> s2_can_r_o1:1, max_conc_all:1, max_conc_s2_o1:1
+s2_strt_w_o1 : max_conc_all:1, max_conc_s2_o1:1, s2_can_w_o1:1, o1:1 -> s2_w_o1:1
+s2_stop_w_o1 : s2_w_o1:1 -> s2_can_w_o1:1, o1:1, max_conc_all:1, max_conc_s2_o1:1
+
+s3_strt_r_o1 : max_conc_all:1, max_conc_s3_o1:1, s3_can_r_o1:1, o1:1 -> o1:1, s3_r_o1:1
+s3_stop_r_o1 : s3_r_o1:1 -> s3_can_r_o1:1, max_conc_all:1, max_conc_s3_o1:1
+s3_strt_w_o1 : max_conc_all:1, max_conc_s3_o1:1, s3_can_w_o1:1, o1:1 -> s3_w_o1:1
+s3_stop_w_o1 : s3_w_o1:1 -> s3_can_w_o1:1, o1:1, max_conc_all:1, max_conc_s3_o1:1
+
+s1_strt_r_o2 : max_conc_all:1, max_conc_s1_o2:1, s1_can_r_o2:1, o2:1 -> o2:1, s1_r_o2:1
+s1_stop_r_o2 : s1_r_o2:1 -> s1_can_r_o2:1, max_conc_all:1, max_conc_s1_o2:1
+s1_strt_w_o2 : max_conc_all:1, max_conc_s1_o2:1, s1_can_w_o2:1, o2:1 -> s1_w_o2:1
+s1_stop_w_o2 : s1_w_o2:1 -> s1_can_w_o2:1, o2:1, max_conc_all:1, max_conc_s1_o2:1
+
+s2_strt_r_o2 : max_conc_all:1, max_conc_s2_o2:1, s2_can_r_o2:1, o2:1 -> o2:1, s2_r_o2:1
+s2_stop_r_o2 : s2_r_o2:1 -> s2_can_r_o2:1, max_conc_all:1, max_conc_s2_o2:1
+s2_strt_w_o2 : max_conc_all:1, max_conc_s2_o2:1, s2_can_w_o2:1, o2:1 -> s2_w_o2:1
+s2_stop_w_o2 : s2_w_o2:1 -> s2_can_w_o2:1, o2:1, max_conc_all:1, max_conc_s2_o2:1
+
+s3_strt_r_o2 : max_conc_all:1, max_conc_s3_o2:1, s3_can_r_o2:1, o2:1 -> o2:1, s3_r_o2:1
+s3_stop_r_o2 : s3_r_o2:1 -> s3_can_r_o2:1, max_conc_all:1, max_conc_s3_o2:1
+s3_strt_w_o2 : max_conc_all:1, max_conc_s3_o2:1, s3_can_w_o2:1, o2:1 -> s3_w_o2:1
+s3_stop_w_o2 : s3_w_o2:1 -> s3_can_w_o2:1, o2:1, max_conc_all:1, max_conc_s3_o2:1

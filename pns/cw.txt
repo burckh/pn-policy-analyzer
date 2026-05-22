@@ -1,0 +1,73 @@
+[PLACES]
+o1_is_udi: 0
+o1_is_cdi: 1
+o1_is_val: 0
+o2_is_udi: 1
+o2_is_cdi: 0
+o2_is_val: 0
+
+tp1_is_val: 1
+tp2_is_val: 1
+
+s1_is_auth: 0
+s2_is_auth: 0
+s3_is_auth: 0
+
+s1_auth_tp1_on_o1: 1
+s1_auth_tp1_on_o2: 0
+s1_auth_tp2_on_o1: 0
+s1_auth_tp2_on_o2: 0
+s2_auth_tp1_on_o1: 0
+s2_auth_tp1_on_o2: 1
+s2_auth_tp2_on_o1: 0
+s2_auth_tp2_on_o2: 0
+s3_auth_tp1_on_o1: 0
+s3_auth_tp1_on_o2: 0
+s3_auth_tp2_on_o1: 1
+s3_auth_tp2_on_o2: 1
+
+o1_lock: 1
+o2_lock: 1
+
+tp1_on_o1: 0
+tp1_on_o2: 0
+tp2_on_o1: 0
+tp2_on_o2: 0
+tp3_on_o1: 0
+tp3_on_o2: 0
+
+o1_pr_pending: 0
+o2_pr_pending: 0
+
+[TRANSITIONS]
+i1_cert_o1 : o1_is_cdi:1 -> o1_is_cdi:1, o1_is_val:1
+i1_cert_o2 : o2_is_cdi:1 -> o2_is_cdi:1, o2_is_val:1
+
+s1_auth : -> s1_is_auth:1
+s2_auth : -> s2_is_auth:1
+s3_auth : -> s3_is_auth:1
+
+run_tp1_on_o1 : o1_is_udi:1 -> o1_is_cdi:1
+run_tp1_on_o2 : o2_is_udi:1 -> o2_is_cdi:1
+run_tp2_on_o1 : o1_is_udi:1 -> o1_is_cdi:1
+run_tp2_on_o2 : o2_is_udi:1 -> o2_is_cdi:1
+
+s1_run_tp1_on_o1 : s1_is_auth:1, tp1_is_val:1, o1_is_val:1, s1_auth_tp1_on_o1:1, o1_lock:1 -> s1_is_auth:1, tp1_is_val:1, o1_is_val:1, s1_auth_tp1_on_o1:1, tp1_on_o1:1, o1_pr_pending:1
+s1_run_tp1_on_o2 : s1_is_auth:1, tp1_is_val:1, o2_is_val:1, s1_auth_tp1_on_o2:1, o2_lock:1 -> s1_is_auth:1, tp1_is_val:1, o2_is_val:1, s1_auth_tp1_on_o2:1, tp1_on_o2:1, o2_pr_pending:1
+s1_run_tp2_on_o1 : s1_is_auth:1, tp2_is_val:1, o1_is_val:1, s1_auth_tp2_on_o1:1, o1_lock:1, o2_pr_pending:1 -> s1_is_auth:1, tp2_is_val:1, o1_is_val:1, s1_auth_tp2_on_o1:1, tp2_on_o1:1
+s1_run_tp2_on_o2 : s1_is_auth:1, tp2_is_val:1, o2_is_val:1, s1_auth_tp2_on_o2:1, o2_lock:1, o2_pr_pending:1-> s1_is_auth:1, tp2_is_val:1, o2_is_val:1, s1_auth_tp2_on_o2:1, tp2_on_o2:1
+
+s2_run_tp1_on_o1 : s2_is_auth:1, tp1_is_val:1, o1_is_val:1, s2_auth_tp1_on_o1:1, o1_lock:1 -> s2_is_auth:1, tp1_is_val:1, o1_is_val:1, s2_auth_tp1_on_o1:1, tp1_on_o1:1, o1_pr_pending:1
+s2_run_tp1_on_o2 : s2_is_auth:1, tp1_is_val:1, o2_is_val:1, s2_auth_tp1_on_o2:1, o2_lock:1 -> s2_is_auth:1, tp1_is_val:1, o2_is_val:1, s2_auth_tp1_on_o2:1, tp1_on_o2:1, o2_pr_pending:1
+s2_run_tp2_on_o1 : s2_is_auth:1, tp2_is_val:1, o1_is_val:1, s2_auth_tp2_on_o1:1, o1_lock:1, o2_pr_pending:1 -> s2_is_auth:1, tp2_is_val:1, o1_is_val:1, s2_auth_tp2_on_o1:1, tp2_on_o1:1
+s2_run_tp2_on_o2 : s2_is_auth:1, tp2_is_val:1, o2_is_val:1, s2_auth_tp2_on_o2:1, o2_lock:1, o2_pr_pending:1 -> s2_is_auth:1, tp2_is_val:1, o2_is_val:1, s2_auth_tp2_on_o2:1, tp2_on_o2:1
+
+s3_run_tp1_on_o1 : s3_is_auth:1, tp1_is_val:1, o1_is_val:1, s3_auth_tp1_on_o1:1, o1_lock:1 -> s3_is_auth:1, tp1_is_val:1, o1_is_val:1, s3_auth_tp1_on_o1:1, tp1_on_o1:1, o1_pr_pending:1
+s3_run_tp1_on_o2 : s3_is_auth:1, tp1_is_val:1, o2_is_val:1, s3_auth_tp1_on_o2:1, o2_lock:1 -> s3_is_auth:1, tp1_is_val:1, o2_is_val:1, s3_auth_tp1_on_o2:1, tp1_on_o2:1, o2_pr_pending:1
+s3_run_tp2_on_o1 : s3_is_auth:1, tp2_is_val:1, o1_is_val:1, s3_auth_tp2_on_o1:1, o1_lock:1, o2_pr_pending:1 -> s3_is_auth:1, tp2_is_val:1, o1_is_val:1, s3_auth_tp2_on_o1:1, tp2_on_o1:1
+s3_run_tp2_on_o2 : s3_is_auth:1, tp2_is_val:1, o2_is_val:1, s3_auth_tp2_on_o2:1, o2_lock:1, o2_pr_pending:1 -> s3_is_auth:1, tp2_is_val:1, o2_is_val:1, s3_auth_tp2_on_o2:1, tp2_on_o2:1
+
+tp1_log_o1 : tp1_on_o1:1 -> o1_lock:1
+tp1_log_o2 : tp1_on_o2:1 -> o2_lock:1
+tp2_log_o1 : tp2_on_o1:1 -> o1_lock:1
+tp2_log_o2 : tp2_on_o2:1 -> o2_lock:1
