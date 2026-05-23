@@ -215,7 +215,28 @@ def biba_demo():
     )
     assert(not found)
 
-    # is the system weakly tranquil?
+    # can violations of weak tranquility be detected?
+    # s1 reads o2, then is upgraded to a level higher than it
+    found = km_tree.search(lambda m: m["s1_leq_o2"] == 0 and m["s1_tran_o2"] > 0, return_path=True)
+    found = [f for f in found if "s1_strt_r_o2" not in f[1]]
+    assert(not found)
+
+    # s2 reads o1, etc.
+    found = km_tree.search(lambda m: m["s2_leq_o1"] == 0 and m["s2_tran_o1"] > 0, return_path=True)
+    found = [f for f in found if "s2_strt_r_o1" not in f[1]]
+    assert(not found)
+
+    found = km_tree.search(lambda m: m["s2_leq_o2"] == 0 and m["s2_tran_o2"] > 0, return_path=True)
+    found = [f for f in found if "s2_strt_r_o2" not in f[1]]
+    assert(not found)
+
+    found = km_tree.search(lambda m: m["s3_leq_o1"] == 0 and m["s3_tran_o1"] > 0, return_path=True)
+    found = [f for f in found if "s2_strt_r_o1" not in f[1]]
+    assert(not found)
+
+    found = km_tree.search(lambda m: m["s3_leq_o2"] == 0 and m["s3_tran_o2"] > 0, return_path=True)
+    found = [f for f in found if "s3_strt_r_o2" not in f[1]]
+    assert(not found)
 
     return
 
